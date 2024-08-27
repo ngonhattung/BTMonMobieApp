@@ -43,7 +43,7 @@ const players1 = game.players[0];
 const players2 = game.players[1];
 
 const gk = players1[0];
-const fieldPlayers = players1.slice(1); //slice trả về mảng mới cắt bớt phần từ thứ n (n là 1)
+const fieldPlayers = players1.slice(1); //slice trả về mảng mới cắt bớt phần tử array.slice(start, end)
 
 const allPlayers = [...players1, ...players2]; //... giải nén tất cả phần từ vào 1 mảng (đưa tất cả p tử từ players1, 2 vào 1 mảng)
 // const allPlayers = [players1, players2]; khi viết như nào sẽ tạo thành 1 mảng chứa 2 mảng bên trong
