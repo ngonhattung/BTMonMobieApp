@@ -1,4 +1,4 @@
-import React from "react";
+import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   View,
@@ -8,9 +8,9 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import Rectangle from "../Lab3FirstScreen/assets/images/Rectangle.png";
-import Eclipse from "../Lab3FirstScreen/assets/images/Ellipse.png";
-const Flex = () => {
+import Rectangle from "../Lab3a/assets/images/Rectangle.png";
+import Eclipse from "../Lab3a/assets/images/Ellipse.png";
+export default function App() {
   return (
     <View
       style={[
@@ -46,9 +46,15 @@ const Flex = () => {
         <Text style={styles.titleText}>YOUR BUSINESS</Text>
       </View>
 
-      <View style={styles.subContainer}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "flex-end",
+          alignItems: "center",
+        }}
+      >
         <Text style={styles.subText}>
-          We will help you to grow your business using online server{" "}
+          We will help you to grow your business using online server
         </Text>
       </View>
 
@@ -67,9 +73,19 @@ const Flex = () => {
           <Text style={styles.text}>SIGN UP </Text>
         </TouchableOpacity>
       </View>
+
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "flex-start",
+          alignItems: "center",
+        }}
+      >
+        <Text style={styles.subText}>HOW WE WORK?</Text>
+      </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -107,12 +123,9 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#E3C000",
-    borderRadius: 10,
     width: 119,
     height: 48,
     justifyContent: "center",
     alignItems: "center",
   },
 });
-
-export default Flex;
