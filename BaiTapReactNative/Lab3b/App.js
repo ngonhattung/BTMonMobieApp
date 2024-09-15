@@ -8,95 +8,90 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome5";
-import Rectangle from "../Lab3b/assets/images/Rectangle.png";
+import Fontisto from "@expo/vector-icons/Fontisto";
 import Lock from "../Lab3b/assets/images/Lock.png";
 const App = () => {
   return (
-    <ImageBackground source={Rectangle} style={styles.background}>
-      <View style={styles.container}>
-        <View
-          style={{
-            flex: 2,
-            justifyContent: "flex-end",
-            alignItems: "center",
-          }}
-        >
-          <Image source={Lock} style={{ width: 105, height: 117 }} />
-        </View>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Image source={Lock} style={styles.img} />
+        <Text style={styles.titleText}>FORGET </Text>
+        <Text style={styles.titleText}>PASSWORD</Text>
+      </View>
 
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text style={styles.titleText}>FORGET </Text>
-          <Text style={styles.titleText}>PASSWORD</Text>
-        </View>
+      <View style={styles.textCenter}>
+        <Text style={styles.subText}>
+          Provide your account’s email for which you want to reset your password
+        </Text>
+      </View>
 
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text style={styles.subText}>
-            Provide your account’s email for which you want to reset your
-            password
-          </Text>
-        </View>
-
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <View style={styles.inputContainer}>
-            <Icon name="envelope" size={25} color="#000" style={styles.icon} />
-            <TextInput style={styles.textInput} placeholder="Email" />
-          </View>
-        </View>
-
-        <View
-          style={{
-            flex: 2,
-            justifyContent: "flex-start",
-            alignItems: "center",
-          }}
-        >
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.text}>Next</Text>
-          </TouchableOpacity>
+      <View style={styles.formContainer}>
+        <View style={styles.emailContainer}>
+          <Fontisto style={styles.icon} name="email" size={24} color="black" />
+          <TextInput style={styles.textInput} placeholder="Email" />
         </View>
       </View>
-    </ImageBackground>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.text}>Next</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    resizeMode: "cover",
-    width: "100%",
-    height: "100%",
-  },
   container: {
     flex: 1,
+    padding: 20,
+    backgroundColor: "#D0F3F6",
   },
-  inputContainer: {
-    flex: 1,
+  header: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 40,
+  },
+  img: {
+    width: 105,
+    height: 117,
+    marginBottom: 30,
+  },
+  textCenter: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 30,
+  },
+  formContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  emailContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    width: "100%",
     backgroundColor: "#C4C4C4",
-    padding: 10,
-    width: 305,
-    maxHeight: 45,
+    margin: 20,
+  },
+  textInput: {
+    flex: 1,
+    height: 54,
+    paddingLeft: 50,
+  },
+  icon: {
+    position: "absolute",
+    left: 15,
+  },
+  buttonContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  button: {
+    backgroundColor: "#E3C000",
+    width: "100%",
+    height: 48,
+    justifyContent: "center",
+    alignItems: "center",
   },
   subText: {
     fontSize: 15,
@@ -105,12 +100,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: 305,
   },
-  icon: {
-    marginRight: 10,
-  },
-  textInput: {
-    flex: 1,
-  },
+
   titleText: {
     fontSize: 25,
     fontWeight: 700,
@@ -124,13 +114,6 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: "black",
     textAlign: "center",
-  },
-  button: {
-    backgroundColor: "#E3C000",
-    width: 305,
-    height: 48,
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
 

@@ -8,110 +8,49 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import { useState, useMemo } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Eye from "../Lab3XMEye/assets/images/Group (1).png";
 export default function App() {
-  const radioButtons = useMemo(
-    () => [
-      {
-        id: "1", // acts as primary key, should be unique and non-empty string
-        label: "Male",
-        value: "option1",
-      },
-      {
-        id: "2",
-        label: "Female",
-        value: "option2",
-      },
-    ],
-    []
-  );
-
-  const [selectedId, setSelectedId] = useState();
   return (
     <View style={styles.container}>
-      <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
+      <View style={styles.header}>
         <Image source={Eye}></Image>
       </View>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "flex-start",
-          alignItems: "center",
-        }}
-      >
-        <View
-          style={[
-            styles.inputContainer,
-            {
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: "5%",
-            },
-          ]}
-        >
-          <Icon
-            name="user"
-            color="blue"
-            size={25}
-            style={{ paddingRight: 10 }}
-          />
+
+      <View style={styles.formContainer}>
+        <View style={styles.inputContainer}>
+          <Icon name="user" color="blue" size={25} style={styles.icon} />
           <TextInput
-            style={{ height: 40, width: 330 }}
+            style={styles.textInput}
             placeholder="Please input user name"
           />
         </View>
-        <View
-          style={[
-            styles.inputContainer,
-            {
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-            },
-          ]}
-        >
-          <Icon
-            name="lock"
-            color="blue"
-            size={25}
-            style={{ paddingRight: 10 }}
-          />
+
+        <View style={styles.inputContainer}>
+          <Icon name="lock" color="blue" size={25} style={styles.icon} />
           <TextInput
-            style={{ height: 40, width: 330 }}
+            style={styles.textInput}
             placeholder="Please input password"
           />
         </View>
       </View>
-      <View
-        style={{
-          flex: 2,
-          justifyContent: "flex-start",
-        }}
-      >
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.text}>LOGIN</Text>
+        </TouchableOpacity>
+
         <View
           style={{
             flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.text}>LOGIN</Text>
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-around",
+            justifyContent: "space-between",
             alignItems: "center",
           }}
         >
           <Text style={styles.subText}>Register</Text>
           <Text style={styles.subText}>Forgot Password</Text>
         </View>
+
         <View>
           <Text style={[styles.subText]}>Other Login Methods</Text>
           <View style={styles.line} />
@@ -131,13 +70,18 @@ export default function App() {
               name="user-plus"
               size={45}
               color="#FFFFFF"
-              style={styles.icon}
+              style={styles.iconButton}
             />
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.subButton, { backgroundColor: "#F4AA47" }]}
           >
-            <Icon name="wifi" size={45} color="#FFFFFF" style={styles.icon} />
+            <Icon
+              name="wifi"
+              size={45}
+              color="#FFFFFF"
+              style={styles.iconButton}
+            />
           </TouchableOpacity>
           <TouchableOpacity
             style={[
@@ -151,7 +95,7 @@ export default function App() {
               name="facebook-f"
               size={45}
               color="#FFFFFF"
-              style={styles.icon}
+              style={styles.iconButton}
             />
           </TouchableOpacity>
         </View>
@@ -164,6 +108,38 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFF",
+    padding: 20,
+  },
+  header: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  formContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 30,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+    borderBottomWidth: 1,
+    borderWidth: 0,
+    borderColor: "#C4C4C4",
+    padding: 8,
+  },
+  textInput: {
+    flex: 1,
+    paddingLeft: 40,
+    height: 54,
+  },
+  icon: {
+    position: "absolute",
+    left: 15,
+  },
+  buttonContainer: {
+    justifyContent: "center",
+    marginTop: 50,
   },
   titleText: {
     fontWeight: 700,
@@ -173,18 +149,9 @@ const styles = StyleSheet.create({
     paddingLeft: "10%",
     paddingTop: "25%",
   },
-  inputContainer: {
-    flex: 1,
-    borderBottomWidth: 1,
-    borderWidth: 0,
-    borderColor: "#C4C4C4",
-    padding: 10,
-    width: 330,
-    maxHeight: 54,
-  },
   button: {
     backgroundColor: "#386FFC",
-    width: 330,
+    width: "100%",
     height: 54,
     justifyContent: "center",
     alignItems: "center",
@@ -196,6 +163,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
+  },
+  iconButton: {
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     fontSize: 16,
