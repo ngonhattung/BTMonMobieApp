@@ -13,3 +13,10 @@
 'BaiTapReactNative/Lab4a/babel.config.js' -text
 'BaiTapReactNative/Lab4a/package-lock.json' -text
 'BaiTapReactNative/Lab4a/package.json' -text
+
+'BaiTapReactNative/Lab4c/.gitignore'-text
+'BaiTapReactNative/Lab4c/App.js'-text
+'BaiTapReactNative/Lab4c/app.json'-text
+'BaiTapReactNative/Lab4c/babel.config.js'-text
+'BaiTapReactNative/Lab4c/package-lock.json'-text
+'BaiTapReactNative/Lab4c/package.json'-text
