@@ -74,7 +74,9 @@ const ProductScreen = ({ route }) => {
       <Pressable
         style={styles.btn}
         onPress={() =>
-          navigation.navigate("Order", { orderedProducts: listProductOrder })
+          navigation.navigate("Order", {
+            orderedProducts: listProductOrder,
+          })
         }
       >
         <Text style={{ color: "white", fontSize: 20 }}>GO TO CART</Text>

@@ -1,10 +1,27 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import ProductList from "../components/ProductList";
 const OrderScreen = ({ route }) => {
   const { orderedProducts } = route.params || {};
-  const totalPrice = orderedProducts.reduce((acc, product) => {
+  const [listOrder, setListOrder] = useState(orderedProducts);
+  const handleQuantityChange = (productId, newQuantity) => {
+    setListOrder((prevList) => {
+      if (newQuantity > 0) {
+        return prevList.map((product) =>
+          product.productID === productId
+            ? { ...product, quantity: newQuantity }
+            : product
+        );
+      } else {
+        const confirm = window.confirm("Do you want to delete this order?");
+        return confirm
+          ? prevList.filter((product) => product.productID !== productId)
+          : console.log("Cancel Pressed");
+      }
+    });
+  };
+  const totalPrice = listOrder.reduce((acc, product) => {
     return acc + product.price * product.quantity;
   }, 0);
   return (
@@ -28,7 +45,10 @@ const OrderScreen = ({ route }) => {
           ${totalPrice}
         </Text>
       </View>
-      <ProductList products={orderedProducts} />
+      <ProductList
+        products={listOrder}
+        onQuantityChange={handleQuantityChange}
+      />
       <Pressable style={styles.btn}>
         <Text style={{ color: "white", fontSize: 20 }}>PAY NOW</Text>
       </Pressable>
